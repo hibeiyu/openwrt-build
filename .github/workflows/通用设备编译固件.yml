@@ -12,13 +12,13 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "immortalwrt"
+        default: "immortalwrt-master"
         type: choice
         options:
-          - openwrt
-          - lede
-          - immortalwrt
-          - Lienol
+          - openwrt-main
+          - lede-master
+          - immortalwrt-master
+          - Lienol-master
       
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
