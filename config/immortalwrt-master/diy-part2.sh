@@ -22,8 +22,8 @@ echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_r
 
 # ------------------------------- Other started -------------------------------
 #
-# Add luci-app-amlogic
-# svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+# Add luci-app-adguardhome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
