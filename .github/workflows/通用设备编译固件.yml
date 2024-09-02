@@ -21,6 +21,7 @@ on:
           - Lienol-master
       
 env:
+  SOURCE_BRANCH: ${{ inputs.source_branch }}
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
   DIY_P1_SH: config/${{ inputs.source_branch }}/diy-part1.sh
@@ -167,7 +168,7 @@ jobs:
         id: tag
         if: env.UPLOAD_RELEASE == 'true' && !cancelled()
         run: |
-          echo "::set-output name=release_tag::$(date +"%Y%m%d%H%M%S")"
+          echo "::set-output name=release_tag::${{ env.SOURCE_BRANCH }}_$(date +"%Y%m%d%H%M%S")"
           touch release.txt
           [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
           [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
